@@ -14,7 +14,7 @@ const Home = () => {
     try {
       // call api to enhance
       const enhancedURL = await enhancedImageAPI(file);
-      setEnhancedImage(enhancedURL);
+      setEnhancedImage(enhancedURL.image);
       setLoading(false);
     } catch (error){
       // code to handle the error and show message
@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <>
       <ImageUpload UploadImageHandler={UploadImageHandler} />
-      <ImagePreview loading = {loading} uploaded = {uploadImage} enhanced = {enhancedImage} />
+      <ImagePreview loading = {loading} uploaded = {uploadImage} enhanced = {enhancedImage?.image} />
     </>
   )
 }
