@@ -6,16 +6,16 @@ import {enhancedImageAPI} from '../utils/enhanceImageApi';
 const Home = () => {
   const [uploadImage, setUploadImage] = useState(null);
   const [enhancedImage, setEnhancedImage] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setloading] = useState(false);
   
   const UploadImageHandler = async(file) => {
     setUploadImage(URL.createObjectURL(file));
-    setLoading(true);
+    setloading(true);
     try {
       // call api to enhance
       const enhancedURL = await enhancedImageAPI(file);
-      setEnhancedImage(enhancedURL.image);
-      setLoading(false);
+      setEnhancedImage(enhancedURL);
+      setloading(false);
     } catch (error){
       // code to handle the error and show message
       console.log(error);
